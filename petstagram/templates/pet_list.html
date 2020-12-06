@@ -1,0 +1,32 @@
+{% extends 'shared/site.html' %}
+{% block site_content %}
+    {% if pets %}
+    <h1 class='text-center'>All available pets for sale</h1>
+    <div class="row">
+        {% for pet in pets %}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ pet.image.url }}"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Name: {{ pet.name }}
+                            Type: {{ pet.type }}
+                            Age: {{ pet.age }}
+                            Price: {{ pet.price }}{{ pet.price_tag }}
+                        </h5>
+                        <p class="card-text">{{ pet.description }}</p>
+                        <h5>
+                            <u>Owner:</u>
+                            <a href="{% url 'user profile' pet.user.user_id %}">{{ pet.user.user.username }}</a>
+                        </h5>
+                        <a href="{% url 'pet details or comment' pet.id %}" class="btn btn-primary">See details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <h1 class='text-center'>No available pets for sale</h1>
+    {% endif %}
+{% endblock %}
