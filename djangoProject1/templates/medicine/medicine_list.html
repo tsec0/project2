@@ -1,0 +1,33 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        {% if meds %}
+            <div class="row">
+                {% for med in meds %}
+                    <div class="row" align="center">
+                        <img src="{{ med.image.url }}" alt="Generic" width="30%">
+                        <div class="col">
+                            <h5><a>Price: <u>{{ med.price }}{{ med.price_tag }}</u></a></h5>
+                            <h5><a>Manufacturer: <u>{{ med.manufacturer }}</u></a></h5>
+                            <h5><a>Suitable for: <u>{{ med.suitable_for }}</u></a></h5>
+                            <h5><a>Ingredients: {{ med.ingredients }}</a></h5>
+                        </div>
+                        <div class="col" align="center">
+                            <a href="{% url 'medicine details' med.id %}"
+                               class="btn btn-warning">See details
+                            </a>
+                            <hr>
+                            <a href=""
+                               class="btn btn-warning">Add to cart
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div align="center">
+                <h1 class='text-center'>No available medicine for sale</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

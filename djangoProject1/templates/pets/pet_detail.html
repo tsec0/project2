@@ -1,0 +1,109 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="{{ pet.image.url }}">
+                    <img src="{{ pet.image.url }}" class="rounded d-block" alt="generic" width="100%">
+                </a>
+                <a href="{{ pet.image_one.url }}">
+                    <img src="{{ pet.image_one.url }}" class="rounded d-block" alt="generic" width="100%">
+                </a>
+            </div>
+            <div class="col">
+                <a href="{{ pet.image_two.url }}">
+                    <img src="{{ pet.image_two.url }}" class="rounded d-block" alt="generic" width="100%">
+                </a>
+                <a href="{{ pet.image_three.url }}">
+                    <img src="{{ pet.image_three.url }}" class="rounded d-block" alt="generic" width="100%">
+                </a>
+            </div>
+            <div class="col">
+                <a href="{{ pet.image_four.url }}">
+                    <img src="{{ pet.image_four.url }}" class="rounded d-block" alt="generic" width="100%">
+                </a>
+                <a href="{{ pet.image_five.url }}">
+                    <img src="{{ pet.image_five.url }}" class="rounded d-block" alt="generic" width="100%">
+                </a>
+            </div>
+            <div class="col">
+                <div class="justify-content-between">
+                    <h5>Animal type: {{ pet.animal_type }}</h5>
+                    <h5>Animal: {{ pet.animal }}</h5>
+                    <h5>Name: {{ pet.name }}</h5>
+                    <h5>Age: {{ pet.age }}</h5>
+                </div>
+                <p class="mt-2">Description: {{ pet.description }}</p>
+                <div class="justify-content-between">
+                    {% if is_sold %}
+                        <h5>Price: <u>SOLD</u></h5>
+                    {% else %}
+                        <h5>Price: <u>{{ pet.price }}{{ pet.price_tag }}</u></h5>
+                    {% endif %}
+                    <h5><u>Owner:</u>
+                        <a href="{% url 'user profile' pet.user.user_id %}">
+                            {{ pet.user.user.username }}
+                        </a>
+                    </h5>
+                </div>
+                {% if can_edit %}
+                    <a href="{% url 'edit pet' pet.pk %}" class="btn btn-success">Edit</a>
+                {% endif %}
+                {% if can_delete %}
+                    <a href="{% url 'delete pet' pet.pk %}" class="btn btn-danger">Delete</a>
+                {% endif %}
+                {% if can_sell %}
+                    {% if is_sold %}
+                        <a href="{% url 'sell pet' pet.id %}">
+                            <i class="btn btn-danger" aria-hidden="true">SOLD</i></a>
+                    {% else %}
+                        <a href="{% url 'sell pet' pet.id %}">
+                            <i class="btn btn-success" aria-hidden="true">FOR SALE</i></a>
+                    {% endif %}
+                {% endif %}
+                {% if can_like %}
+                    {% if has_liked %}
+                        <a href="{% url 'like pet' pet.id %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                    {% else %}
+                        <a href="{% url 'like pet' pet.id %}"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+                    {% endif %}
+                {% endif %}
+                <h5 class="mt-2">Likes: {{ pet.like_set.count }}</h5>
+            </div>
+        </div>
+        <div class="d-block" style="background-color: lightyellow; padding:2%">
+            {% if pet.comment_set.all %}
+                {% for comment in pet.comment_set.all %}
+                    <div class="box">
+                        {% if comment.user.profile_picture %}
+                            <img class="rounded-circle mb-3" src="{{ comment.user.profile_picture.url }}"
+                                 width="35" height="35"
+                                 alt="Unfortunately No image">
+                        {% else %}
+                            <img class="rounded-circle mb-3"
+                                 src="https://afribary.com/authors/anonymous-user/photo"
+                                 width="35" height="35" alt="Generic picture">
+                        {% endif %}
+                        <a href="{% url 'user profile' comment.user_id %}">
+                            {{ comment.user.user.username }}</a>
+                        <h5><em>{{ comment.text }}</em></h5>
+                        <hr>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="box">
+                    <h3>There are no comments for this pet. </h3>
+                </div>
+            {% endif %}
+            {% if can_comment %}
+                <div class="box">
+                    <form method="post" action="{% url 'comment pet' pet.id %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-primary mt-2" type="submit">Add comment</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

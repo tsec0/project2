@@ -1,0 +1,40 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ medicine.image.url }}">
+                            <img src="{{ medicine.image.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                        <a href="{{ medicine.image_one.url }}">
+                            <img src="{{ medicine.image_one.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ medicine.image_two.url }}">
+                            <img src="{{ medicine.image_two.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                        <a href="{{ medicine.image_three.url }}">
+                            <img src="{{ medicine.image_three.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="justify-content-between">
+                    <h5>Medicine name: {{ medicine.medicine_name }}</h5>
+                    <h5>Suitable for: {{ medicine.suitable_for }}</h5>
+                    <h5>Ingredients: {{ medicine.ingredients }}</h5>
+                </div>
+                <p class="mt-2">Description: {{ medicine.description }}</p>
+                <div class="justify-content-between">
+                    <h5>Weight: <u>{{ medicine.weight }}{{ medicine.weight_tag }}</u></h5>
+                    <h5>Price: <u>{{ medicine.price }}{{ medicine.price_tag }}</u></h5>
+                    <h5><u>Manufacturer: {{ medicine.manufacturer }}</u></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

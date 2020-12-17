@@ -1,0 +1,35 @@
+ul a:hover {
+    background-color: lemonchiffon;
+}
+
+i, h1, h2, h5, p {
+    color: darkblue;
+    font-family: Lucida Console;
+    text-shadow: 1px 1px 2px lavender, 0 0 25px lightcyan, 0 0 5px lemonchiffon;
+}
+
+body {
+    height: 100%;
+    background-image: url("https://thumbs.dreamstime.com/z/cat-dog-paw-seamless-patterns-backgrounds-pet-shop-websites-prints-animal-footprint-cute-trendy-colors-pattern-125327438.jpg");
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

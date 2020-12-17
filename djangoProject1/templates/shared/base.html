@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static './css/static.css' %}">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="https://image.flaticon.com/icons/png/512/1018/1018400.png">
+    <title>Pet store</title>
+</head>
+
+<body>
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:2%">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li><a class="nav-link" href="{% url 'list pets' %}">
+                    <i class="fa fa-paw" aria-hidden="true"> Pets</i></a></li>
+                <li><a class="nav-link" href="{% url 'list food' %}">
+                    <i class="fa fa-cutlery" aria-hidden="true"> Food</i></a></li>
+                <li><a class="nav-link" href="{% url 'list toys' %}">
+                    <i class="fa fa-paper-plane" aria-hidden="true"> Toys</i></a></li>
+                <li><a class="nav-link" href="{% url 'list medicine' %}">
+                    <i class="fa fa-medkit"> Medicine</i></a></li>
+                <li><a class="nav-link" href="#">
+                    <i class="fa fa-shopping-cart"> Cart</i></a></li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li><a class="nav-link" href="{% url 'mail inbox' %}">
+                    <i class="fa fa-envelope" aria-hidden="true"> Your Mail</i></a></li>
+                <li><a class="nav-link" href="{% url 'user pets' %}">
+                    <i class="fa fa-bars" aria-hidden="true"> Your pets</i></a></li>
+                <li><a class="nav-link" href="{% url 'current' %}">
+                    <i class="fa fa-user" aria-hidden="true"> {{ user.username }}</i></a></li>
+                <li><a class="nav-link" href="{% url 'signout user' %}">
+                    <i class="fa fa-sign-out" aria-hidden="true"> Sign out</i>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+{% endif %}
+
+<div class="container">
+    {% block site_content %}
+    {% endblock %}
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+</html>

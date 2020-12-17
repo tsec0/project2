@@ -1,0 +1,34 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        {% if toys %}
+            <div class="row">
+                {% for toy in toys %}
+                    <div class="row" align="center">
+                        <img src="{{ toy.image.url }}" alt="Generic" width="30%">
+                        <div class="col">
+                            <h5><a>Price: <u>{{ toy.price }}{{ toy.price_tag }}</u></a></h5>
+                            <h5><a>Manufacturer: <u>{{ toy.manufacturer }}</u></a></h5>
+                            <h5><a>Suitable for: <u>{{ toy.suitable_for }}</u></a></h5>
+                            <h5><a>Comments: <u>{{ toy.commentsoftoys_set.count }}</u></a></h5>
+                            <h5><a>Likes: {{ toy.liked_set.count }}</a></h5>
+                        </div>
+                        <div class="col" align="center">
+                            <a href="{% url 'toy details' toy.id %}"
+                               class="btn btn-warning">See details
+                            </a>
+                            <hr>
+                            <a href=""
+                               class="btn btn-warning">Add to cart
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div align="center">
+                <h1 class='text-center'>No available toys for sale</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

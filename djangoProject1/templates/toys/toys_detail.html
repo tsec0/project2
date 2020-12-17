@@ -1,0 +1,77 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ toy.image.url }}">
+                            <img src="{{ toy.image.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                        <a href="{{ toy.image_one.url }}">
+                            <img src="{{ toy.image_one.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ toy.image_two.url }}">
+                            <img src="{{ toy.image_two.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                        <a href="{{ toy.image_three.url }}">
+                            <img src="{{ toy.image_three.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="justify-content-between">
+                    <h5>Toy name: {{ toy.toy_name }}</h5>
+                    <h5>Suitable for: {{ toy.suitable_for }}</h5>
+                    <h5>Material: {{ toy.material }}</h5>
+                </div>
+                <p class="mt-2">Description: {{ toy.description }}</p>
+                <div class="justify-content-between">
+                    <h5>Price: <u>{{ toy.price }}{{ toy.price_tag }}</u></h5>
+                    <h5><u>Manufacturer: {{ toy.manufacturer }}</u></h5>
+                </div>
+                {% if has_liked_a_lot %}
+                    <a href="{% url 'like toy' toy.id %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                {% else %}
+                    <a href="{% url 'like toy' toy.id %}"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+                {% endif %}
+                <h5 class="mt-2">Likes: {{ toy.liked_set.count }}</h5>
+            </div>
+            <div style="background-color: lightyellow; padding:2%">
+                {% if toy.commentsoftoys_set.all %}
+                    {% for comment in toy.commentsoftoys_set.all %}
+                        <div class="box">
+                            {% if comment.user.profile_picture %}
+                                <img class="rounded-circle mb-3" src="{{ comment.user.profile_picture.url }}"
+                                     width="35" height="35"
+                                     alt="Unfortunately No image">
+                            {% else %}
+                                <img class="rounded-circle mb-3"
+                                     src="https://afribary.com/authors/anonymous-user/photo"
+                                     width="35" height="35" alt="Generic picture">
+                            {% endif %}
+                            <a href="{% url 'user profile' comment.user_id %}">
+                                {{ comment.user.user.username }}</a>
+                            <h5><em>{{ comment.text }}</em></h5>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="box">
+                        <h3>There are no comments for this toy. </h3>
+                    </div>
+                {% endif %}
+                <div class="box">
+                    <form method="post" action="{% url 'comment toy' toy.pk %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-primary mt-2" type="submit">Add comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

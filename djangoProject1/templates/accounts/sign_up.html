@@ -1,0 +1,10 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <form method="post">
+        <div align="center">
+            {% csrf_token %}
+            <h5>{{ form }}</h5>
+            <button class="btn btn-primary" type="submit">Sign in</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        {% if food %}
+            <div class="row">
+                {% for foo in food %}
+                    <div class="row" align="center">
+                        <img src="{{ foo.image.url }}" alt="Generic" width="30%">
+                        <div class="col">
+                            <h5><a>Price: <u>{{ foo.price }}{{ foo.price_tag }}</u></a></h5>
+                            <h5><a>Manufacturer: <u>{{ foo.manufacturer }}</u></a></h5>
+                            <h5><a>Suitable for: <u>{{ foo.suitable_for }}</u></a></h5>
+                            <h5><a>Comments: <u>{{ foo.commentsoffood_set.count }}</u></a></h5>
+                            <h5><a>Ingredients: {{ foo.ingredients }}</a></h5>
+                        </div>
+                        <div class="col" align="center">
+                            <a href="{% url 'food details' foo.id %}"
+                               class="btn btn-warning">See details
+                            </a>
+                            <hr>
+                            <a href=""
+                               class="btn btn-warning">Add to cart
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div align="center">
+                <h1 class='text-center'>No available food for sale</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

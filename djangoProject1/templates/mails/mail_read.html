@@ -1,0 +1,26 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div align="center">
+        <div class="container">
+            <div class="justify-content-between">
+                <h5>Sender : {{ mail.sender }}</h5>
+                <h5>Receiver: {{ mail.receiver }}</h5>
+                <h5>Title: {{ mail.title }}</h5>
+            </div>
+            <p class="mt-2">Content: {{ mail.content }}</p>
+            <div class="justify-content-between">
+                {% if is_read %}
+                    <a href="{% url 'mail read' mail.id %}">
+                        <i class="btn btn-success" aria-hidden="true">READ</i></a>
+                {% else %}
+                    <a href="{% url 'mail read' mail.id %}">
+                        <i class="btn btn-warning" aria-hidden="true">NOT READ</i></a>
+                {% endif %}
+                <a href="{% url 'delete mail' mail.id %}">
+                    <i class="btn btn-danger" aria-hidden="true">Delete</i></a>
+                <a href="{% url 'mail inbox' %}">
+                    <i class="btn btn-primary" aria-hidden="true">Close</i></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

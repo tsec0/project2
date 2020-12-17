@@ -1,0 +1,32 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div align="center">
+        <a href="{% url 'create pet' %}" class="btn btn-success">Create pet</a>
+    </div>
+    {% if pets %}
+        <h2 class='text-center'>These are {{ profile_user.username }}'s pets</h2>
+        <div class="row">
+            {% for pet in pets %}
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img src="{{ pet.image.url }}" class="card-img-top" alt="Generic" width="30%">
+                        <div class="card-body">
+                            <a href="{% url 'pet details' pet.id %}"
+                               class="btn btn-warning">See details
+                            </a>
+                            {% if not pet.sell_set.count > 0 %}
+                                <a>Price: <u>{{ pet.price }}{{ pet.price_tag }}</u></a>
+                            {% else %}
+                                <a><u class="btn btn-danger">SOLD</u></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center">
+            <h2>You have no pets</h2>
+        </div>
+    {% endif %}
+{% endblock %}

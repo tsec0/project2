@@ -1,0 +1,10 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <form method="post" action="{% url 'edit mail' mail.pk %}" class="furniture-form"
+          enctype="multipart/form-data">
+        {{ form }}
+        {% csrf_token %}
+        {# <a href="{% url 'resend mail' %}" class="btn btn-primary">Resend</a>#}
+        <a href="{% url 'mail inbox' %}" class="btn btn-danger">Close</a>
+    </form>
+{% endblock %}

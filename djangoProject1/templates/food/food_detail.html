@@ -1,0 +1,72 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ foo.image.url }}">
+                            <img src="{{ foo.image.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                        <a href="{{ foo.image_one.url }}">
+                            <img src="{{ foo.image_one.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ foo.image_two.url }}">
+                            <img src="{{ foo.image_two.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                        <a href="{{ foo.image_three.url }}">
+                            <img src="{{ foo.image_three.url }}" class="rounded d-block" alt="generic" width="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="justify-content-between">
+                    <h5>Food name: {{ foo.food_name }}</h5>
+                    <h5>Suitable for: {{ foo.suitable_for }}</h5>
+                    <h5>Ingredients: {{ foo.ingredients }}</h5>
+                </div>
+                <p class="mt-2">Description: {{ foo.description }}</p>
+                <div class="justify-content-between">
+                    <h5>Weight: <u>{{ foo.weight }}{{ foo.weight_tag }}</u></h5>
+                    <h5>Price: <u>{{ foo.price }}{{ foo.price_tag }}</u></h5>
+                    <h5><u>Manufacturer: {{ foo.manufacturer }}</u></h5>
+                </div>
+            </div>
+            <div style="background-color: lightyellow; padding:2%">
+                {% if foo.commentsoffood_set.all %}
+                    {% for comment in foo.commentsoffood_set.all %}
+                        <div class="box">
+                            {% if comment.user.profile_picture %}
+                                <img class="rounded-circle mb-3" src="{{ comment.user.profile_picture.url }}"
+                                     width="35" height="35"
+                                     alt="Unfortunately No image">
+                            {% else %}
+                                <img class="rounded-circle mb-3"
+                                     src="https://afribary.com/authors/anonymous-user/photo"
+                                     width="35" height="35" alt="Generic picture">
+                            {% endif %}
+                            <a href="{% url 'user profile' comment.user_id %}">
+                                {{ comment.user.user.username }}</a>
+                            <h5><em>{{ comment.text }}</em></h5>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="box">
+                        <h3>There are no comments for this food. </h3>
+                    </div>
+                {% endif %}
+                <div class="box">
+                    <form method="post" action="{% url 'comment food' foo.pk %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-primary mt-2" type="submit">Add comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

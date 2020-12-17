@@ -1,0 +1,39 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        <div align="center">
+            <a href="{% url 'send mail' %}" class="btn btn-success">Send new mail</a>
+        </div>
+        {% if mails %}
+            <div class="row">
+                {% for mail in mails %}
+                    <div class="col">
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-body">
+                                <div class="justify-content-between">
+                                    <h5>Title: {{ mail.title }}</h5>
+                                    <h5>Sender : {{ mail.sender }}</h5>
+                                    <h5>Receiver: {{ mail.receiver }}</h5>
+                                </div>
+                                <a href="{% url 'read mail' mail.pk %}"
+                                   class="btn btn-warning">Read mail
+                                </a>
+                                {% if not mail.isread_set.count > 0 %}
+                                    <a><u class="btn btn-danger">NOT READ</u></a>
+                                {% else %}
+                                    <a><u class="btn btn-success">READ</u></a>
+                                {% endif %}
+                                <a href="{% url 'edit mail' mail.pk %}"
+                                   class="btn btn-primary">Answer</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div align="center">
+                <h1 class='text-center'>You have no mails</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
