@@ -5,7 +5,7 @@ from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixins
 
 # Create your views here.
-from mails.forms import MailForm
+from mails.forms import MailForm, OrderForm
 from mails.models import Mail, IsRead
 
 
@@ -66,6 +66,25 @@ class CreateMailView(auth_mixins.LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
 
+class CreateOrderView(auth_mixins.LoginRequiredMixin, views.CreateView):
+    template_name = 'mails/order_create.html'
+    model = Mail
+    form_class = OrderForm
+
+    def get_success_url(self):
+        url = reverse_lazy('mail inbox')
+        return url
+
+    def form_valid(self, form):
+        mail = form.save(commit=False)
+        mail.receiver = self.request.user.userprofile
+        mail.receiver_id = self.request.user.userprofile.id
+        mail.sender = 'SiteAdmin'
+        mail.title = 'Thank you for your order!'
+        mail.save()
+        return super().form_valid(form)
+
+
 class DeleteMailView(auth_mixins.LoginRequiredMixin, views.DeleteView):
     model = Mail
     template_name = 'mails/mail_delete.html'
@@ -79,7 +98,7 @@ class DeleteMailView(auth_mixins.LoginRequiredMixin, views.DeleteView):
         return super().dispatch(request, *args, **kwargs)
 
 
-class IsReadPetView(views.View):
+class IsReadMailView(views.View):
 
     def get(self, request, **kwargs):
         user_profile = request.user.userprofile

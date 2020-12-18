@@ -4,7 +4,6 @@
         <a href="{% url 'create pet' %}" class="btn btn-success">Create pet</a>
     </div>
     {% if pets %}
-        <h2 class='text-center'>These are {{ profile_user.username }}'s pets</h2>
         <div class="row">
             {% for pet in pets %}
                 <div class="col">

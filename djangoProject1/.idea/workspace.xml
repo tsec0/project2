@@ -39,14 +39,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\accounts" />
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\cart" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\toys" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\static\css" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\accounts" />
-      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\cart" />
     </key>
   </component>
   <component name="RunManager">
@@ -90,6 +90,7 @@
       <workItem from="1608103875554" duration="25547000" />
       <workItem from="1608148825425" duration="5833000" />
       <workItem from="1608196244467" duration="28049000" />
+      <workItem from="1608328725355" duration="2675000" />
     </task>
     <servers />
   </component>
@@ -97,10 +98,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="486" y="33" width="816" height="685" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608232490678">
+    <state x="486" y="33" width="816" height="685" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608328782901">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="486" y="33" width="816" height="685" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1608232490678" />
+    <state x="486" y="33" width="816" height="685" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1608328782901" />
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608024642276">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
