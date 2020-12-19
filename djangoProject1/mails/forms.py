@@ -12,7 +12,19 @@ class MailForm(forms.ModelForm):
 
     class Meta:
         model = Mail
-        fields = '__all__'
+        exclude = ('quantity', 'address', 'sender', 'offer')
+
+
+class SendToOwnerForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for (_, field) in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+    class Meta:
+        model = Mail
+        exclude = ('sender', 'address', 'quantity')
 
 
 class OrderForm(forms.ModelForm):
@@ -24,4 +36,4 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Mail
-        exclude = ('receiver', 'sender', 'title')
+        exclude = ('receiver', 'sender', 'title', 'offer')

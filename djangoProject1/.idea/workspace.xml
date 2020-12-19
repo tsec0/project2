@@ -39,14 +39,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\accounts" />
-      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\cart" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\toys" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\static\css" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\accounts" />
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\cart" />
     </key>
   </component>
   <component name="RunManager">
@@ -90,7 +90,9 @@
       <workItem from="1608103875554" duration="25547000" />
       <workItem from="1608148825425" duration="5833000" />
       <workItem from="1608196244467" duration="28049000" />
-      <workItem from="1608328725355" duration="2675000" />
+      <workItem from="1608328725355" duration="3678000" />
+      <workItem from="1608369985158" duration="7550000" />
+      <workItem from="1608384663631" duration="4486000" />
     </task>
     <servers />
   </component>
@@ -106,22 +108,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608024642276" />
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1608233301917">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1608389242004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608233301917" />
-    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1608233301916">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1608389242004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608233301916" />
-    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1608233301916">
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1608389242004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608233301916" />
-    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1608233301917">
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1608389242004">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608233301917" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
     <state width="223" height="471" key="HiddenNamespacesPopup" timestamp="1608232741797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -142,9 +144,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="500" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1608233365858" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1608155414798">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1608376169550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1608155414798" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1608376169550" />
   </component>
 </project>

@@ -18,4 +18,4 @@ class UserProfile(models.Model):
     )
 
     def __str__(self):
-        return f'User: {self.user.username}'
+        return f'{self.user.username}'

@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 
 from core.clean_up import clean_up_files
+from mails.forms import SendToOwnerForm
+from mails.models import Mail
 from pets.comments_form import CommentForm
 from pets.models import Pet, Like, Sell
 from pets.forms import PetForm
@@ -53,6 +55,22 @@ class PetDetailsView(views.DetailView):
         context['is_sold'] = pet.sell_set.filter(user_id=self.request.user.userprofile.id).exists()
         # context['can_send_message'] = self.request.user != pet.user.user
         return context
+
+
+class MailToPetOwnerView(auth_mixins.LoginRequiredMixin, views.CreateView):
+    template_name = 'mails/order_create.html'
+    model = Mail
+    form_class = SendToOwnerForm
+
+    def get_success_url(self):
+        url = reverse_lazy('mail inbox')
+        return url
+
+    def form_valid(self, form):
+        mail = form.save(commit=False)
+        mail.sender = self.request.user.username
+        mail.save()
+        return super().form_valid(form)
 
 
 class LikePetView(views.View):

@@ -1,7 +1,10 @@
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixins
 
+from mails.forms import OrderForm
+from mails.models import Mail
 from toys.models import Toys, Liked
 from toys.forms import CommentsOfToysForm
 

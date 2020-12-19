@@ -4,8 +4,8 @@ ul a:hover {
 
 i, h1, h2, h5, p {
     color: darkblue;
+    text-shadow: 1px 1px 2px dodgerblue, 0 0 25px lightskyblue, 0 0 5px lawngreen;
     font-family: Lucida Console;
-    text-shadow: 1px 1px 2px lavender, 0 0 25px lightcyan, 0 0 5px lemonchiffon;
 }
 
 body {

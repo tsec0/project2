@@ -10,8 +10,8 @@ class ReadInLine(admin.TabularInline):
 
 
 class MailAdmin(admin.ModelAdmin):
-    list_display = ('id', 'sender', 'receiver')
-    list_filter = ('sender', 'receiver')
+    list_display = ('sender', 'receiver', 'title', 'quantity', 'offer', 'content')
+    list_filter = ('sender', 'receiver', 'title', 'quantity')
     inlines = (
         ReadInLine,
     )

@@ -69,6 +69,7 @@
                     {% endif %}
                 {% endif %}
                 <h5 class="mt-2">Likes: {{ pet.like_set.count }}</h5>
+                <a href="{% url 'send mail to owner' %}" class="btn btn-success">Send an Offer</a>
             </div>
         </div>
         <div class="d-block" style="background-color: lightyellow; padding:2%">

@@ -62,6 +62,7 @@ class CreateMailView(auth_mixins.LoginRequiredMixin, views.CreateView):
 
     def form_valid(self, form):
         mail = form.save(commit=False)
+        mail.sender = self.request.user.username
         mail.save()
         return super().form_valid(form)
 

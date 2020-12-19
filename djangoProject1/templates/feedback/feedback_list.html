@@ -1,0 +1,44 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <div class="container">
+        <div align="center">
+            <a href="{% url 'create feedback' %}"
+               class="btn btn-success">Leave a feedback
+            </a>
+        </div>
+        {% if feedbacks %}
+            <div class="row">
+                {% for feedback in feedbacks %}
+                    <hr>
+                    <div class="row">
+                        {% if feedback.publisher.profile_picture %}
+                            <img class="rounded-circle mb-3" src="{{ feedback.publisher.profile_picture.url }}"
+                                 width="35" height="35"
+                                 alt="Unfortunately No image">
+                        {% else %}
+                            <img class="rounded-circle mb-3"
+                                 src="https://afribary.com/authors/anonymous-user/photo"
+                                 width="35" height="35" alt="Generic picture">
+                        {% endif %}
+                        <div class="coll">
+                        <h1><a href="{% url 'user profile' feedback.publisher_id %}">
+                            Publisher: {{ feedback.publisher }}</a></h1>
+                        <h1>Title: {{ feedback.title }}</h1>
+                        </div>
+                        <h3>
+                            Mark Servicing: {{ feedback.servicing }}
+                            Mark Mailing: {{ feedback.mailing }}
+                            Mark Publishing: {{ feedback.publishing }}
+                            Mark Orders: {{ feedback.orders }}
+                        </h3>
+                        <h5>Content: <u>{{ feedback.content }}</u></h5>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div align="center">
+                <h1 class='text-center'>Be the first to leave a feedback</h1>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

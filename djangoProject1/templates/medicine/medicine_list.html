@@ -2,6 +2,12 @@
 {% block site_content %}
     <div class="container">
         {% if meds %}
+            <div align="center">
+                <a href="{% url 'send order' %}"
+                   class="btn btn-success">ORDER
+                </a>
+            </div>
+            <hr>
             <div class="row">
                 {% for med in meds %}
                     <div class="row" align="center">
@@ -17,9 +23,6 @@
                                class="btn btn-warning">See details
                             </a>
                             <hr>
-                            <a href="{% url 'send order' %}"
-                               class="btn btn-warning">Add to cart
-                            </a>
                         </div>
                     </div>
                 {% endfor %}

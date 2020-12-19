@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'mails',
     'toys',
     'food',
-    'medicine'
+    'medicine',
+    'userfeedback',
 ]
 
 MIDDLEWARE = [
