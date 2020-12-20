@@ -1,9 +1,5 @@
 {% extends 'shared/base.html' %}
 {% block site_content %}
-{#        {% csrf_token %}#}
-{#        {{ form }}#}
-{#        <button class="btn btn-primary">Sign in</button>#}
-{#</form>#}
 <form action="{% url 'signin user' %}" method="post">
     {% csrf_token %}
     <div align="center">
@@ -11,9 +7,11 @@
         <input type="text" id="id_username" name="username" placeholder="Username..">
 
         <label for="passwd">Password</label>
-        <input type="text" id="id_password" name="password" placeholder="Password..">
+        <input type="password" id="id_password" name="password" placeholder="Password..">
 
         <input type="submit" value="Submit">
+        <h1>OR</h1>
+        <a href="{% url 'welcome' %}" class="btn btn-danger">Return to main page</a>
     </div>
 </form>
 {% endblock %}

@@ -1,7 +1,8 @@
 from django.urls import path
 
 from pets.views import PetDetailsView, UpdatePetView, LikePetView, \
-    SellPetView, CommentPetView, DeletePetView, CreatePetView, PetsListView, YourPetsListView, MailToPetOwnerView
+    SellPetView, CommentPetView, DeletePetView, CreatePetView, \
+    PetsListView, YourPetsListView, MailToPetOwnerView, Success
 
 urlpatterns = [
     path('', PetsListView.as_view(), name='list pets'),
@@ -13,5 +14,6 @@ urlpatterns = [
     path('edit/<int:pk>/', UpdatePetView.as_view(), name='edit pet'),
     path('delete/<int:pk>/', DeletePetView.as_view(), name='delete pet'),
     path('create/', CreatePetView.as_view(), name='create pet'),
-    path('sendmail/', MailToPetOwnerView.as_view(), name='send mail to owner')
+    path('sendmail/<int:pk>', MailToPetOwnerView.as_view(), name='send mail to owner'),
+    path('success/', Success.as_view(), name='success'),
 ]

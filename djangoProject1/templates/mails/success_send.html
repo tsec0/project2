@@ -1,0 +1,5 @@
+{% extends 'shared/base.html' %}
+{% block site_content %}
+    <h1>Mail sent successfully!</h1>
+    <a href="{% url 'mail inbox' %}" class="btn btn-success">Return to Mail inbox</a>
+{% endblock %}

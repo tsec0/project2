@@ -4,6 +4,7 @@
           enctype="multipart/form-data">
         {{ form }}
         {% csrf_token %}
+        <button class="btn btn-warning wt-2" type="submit">Answer</button>
         {# <a href="{% url 'resend mail' %}" class="btn btn-primary">Resend</a>#}
         <a href="{% url 'mail inbox' %}" class="btn btn-danger">Close</a>
     </form>

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from mails.views import DeleteMailView, IsReadMailView, CreateMailView, YourMailsListView, \
-    MailReadView, UpdateMailView, CreateOrderView
+    MailReadView, AnswerMailView, SuccessMailSend
 
 urlpatterns = [
     path('inbox/', YourMailsListView.as_view(), name='mail inbox'),
@@ -9,6 +9,6 @@ urlpatterns = [
     path('read/<int:pk>/', MailReadView.as_view(), name='read mail'),
     path('delete/<int:pk>/', DeleteMailView.as_view(), name='delete mail'),
     path('create/', CreateMailView.as_view(), name='send mail'),
-    path('order/', CreateOrderView.as_view(), name='send order'),
-    path('edit/<int:pk>', UpdateMailView.as_view(), name='edit mail'),
+    path('edit/<int:pk>', AnswerMailView.as_view(), name='edit mail'),
+    path('success/', SuccessMailSend.as_view(), name='success mail send'),
 ]

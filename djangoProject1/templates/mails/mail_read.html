@@ -6,13 +6,18 @@
                 <h5>Sender : {{ mail.sender }}</h5>
                 <h5>Receiver: {{ mail.receiver }}</h5>
                 <h5>Title: {{ mail.title }}</h5>
-                <h5 class="mt-2">Content: {{ mail.content }}</h5>
             </div>
             {% if mail.address %}
                 <h5>Address: {{ mail.address }}</h5>
             {% endif %}
             {% if mail.quantity %}
                 <h5>Quantity: {{ mail.quantity }}</h5>
+            {% endif %}
+            {% if mail.offer %}
+                <h5>Price: {{ mail.offer }}</h5>
+            {% endif %}
+            {% if mail.content %}
+                <p>Content: {{ mail.content }}</p>
             {% endif %}
             <div class="justify-content-between">
                 {% if is_read %}

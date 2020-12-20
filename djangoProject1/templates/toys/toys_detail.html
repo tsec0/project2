@@ -33,12 +33,17 @@
                     <h5>Price: <u>{{ toy.price }}{{ toy.price_tag }}</u></h5>
                     <h5><u>Manufacturer: {{ toy.manufacturer }}</u></h5>
                 </div>
-                {% if has_liked_a_lot %}
-                    <a href="{% url 'like toy' toy.id %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-                {% else %}
-                    <a href="{% url 'like toy' toy.id %}"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
-                {% endif %}
-                <h5 class="mt-2">Likes: {{ toy.liked_set.count }}</h5>
+                <div class="row">
+                    {% if has_liked_a_lot %}
+                        <a href="{% url 'like toy' toy.id %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                    {% else %}
+                        <a href="{% url 'like toy' toy.id %}"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a>
+                    {% endif %}
+                    <h5>-Likes: {{ toy.liked_set.count }}-</h5>
+                    <a href="{% url 'send toy order' toy.id %}"
+                       class="btn btn-success">ORDER
+                    </a>
+                </div>
             </div>
             <div style="background-color: lightyellow; padding:2%">
                 {% if toy.commentsoftoys_set.all %}

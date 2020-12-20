@@ -31,7 +31,7 @@ class Toys(models.Model):
     )
 
     def __str__(self):
-        return f'{self.toy_name} {self.manufacturer} {self.material}'
+        return f'{self.toy_name} {self.manufacturer} {self.material} {self.price}{self.price_tag}'
 
 
 class Liked(models.Model):

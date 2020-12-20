@@ -51,4 +51,5 @@ class Medicine(models.Model):
     )
 
     def __str__(self):
-        return f'{self.medicine_name} {self.manufacturer} {self.ingredients} {self.weight}{self.weight_tag}'
+        return f'{self.medicine_name} {self.manufacturer} {self.ingredients} ' \
+               f'{self.weight}{self.weight_tag} {self.price}{self.price_tag}'

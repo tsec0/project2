@@ -17,7 +17,8 @@
                             <img src="{{ medicine.image_two.url }}" class="rounded d-block" alt="generic" width="100%">
                         </a>
                         <a href="{{ medicine.image_three.url }}">
-                            <img src="{{ medicine.image_three.url }}" class="rounded d-block" alt="generic" width="100%">
+                            <img src="{{ medicine.image_three.url }}" class="rounded d-block" alt="generic"
+                                 width="100%">
                         </a>
                     </div>
                 </div>
@@ -33,6 +34,11 @@
                     <h5>Weight: <u>{{ medicine.weight }}{{ medicine.weight_tag }}</u></h5>
                     <h5>Price: <u>{{ medicine.price }}{{ medicine.price_tag }}</u></h5>
                     <h5><u>Manufacturer: {{ medicine.manufacturer }}</u></h5>
+                    <div align="center">
+                        <a href="{% url 'send medicine order' medicine.id%}"
+                           class="btn btn-success">ORDER
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

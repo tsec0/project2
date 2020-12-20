@@ -34,19 +34,21 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/accounts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/mails" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\mails" />
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\accounts" />
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\cart" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\pets" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\toys" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\static\css" />
       <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\templates\accounts" />
-      <recent name="C:\Users\DontSWEAR\PycharmProjects\djangoProject1\cart" />
     </key>
   </component>
   <component name="RunManager">
@@ -93,6 +95,10 @@
       <workItem from="1608328725355" duration="3678000" />
       <workItem from="1608369985158" duration="7550000" />
       <workItem from="1608384663631" duration="4486000" />
+      <workItem from="1608415423931" duration="8634000" />
+      <workItem from="1608424199461" duration="156000" />
+      <workItem from="1608450987084" duration="652000" />
+      <workItem from="1608451711764" duration="2296000" />
     </task>
     <servers />
   </component>
@@ -108,22 +114,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608024642276" />
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1608389242004">
+    <state width="1323" height="88" key="GridCell.Tab.0.bottom" timestamp="1608454092602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
-    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1608389242004">
+    <state width="1323" height="88" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608454092602" />
+    <state width="1323" height="88" key="GridCell.Tab.0.center" timestamp="1608454092601">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
-    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1608389242004">
+    <state width="1323" height="88" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608454092601" />
+    <state width="1323" height="88" key="GridCell.Tab.0.left" timestamp="1608454092601">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
-    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1608389242004">
+    <state width="1323" height="88" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608454092601" />
+    <state width="1323" height="88" key="GridCell.Tab.0.right" timestamp="1608454092602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608389242004" />
+    <state width="1323" height="88" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608454092602" />
     <state width="223" height="471" key="HiddenNamespacesPopup" timestamp="1608232741797">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

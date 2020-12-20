@@ -5,7 +5,7 @@ from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixins
 
 # Create your views here.
-from mails.forms import MailForm, OrderForm
+from mails.forms import MailForm, OrderForm, AnswerMailForm
 from mails.models import Mail, IsRead
 
 
@@ -26,6 +26,12 @@ class YourMailsListView(views.ListView):
         return context
 
 
+class SuccessMailSend(views.ListView):
+    model = Mail
+    template_name = 'mails/success_send.html'
+    context_object_name = 'mails'
+
+
 class MailReadView(views.DetailView):
     model = Mail
     template_name = 'mails/mail_read.html'
@@ -38,16 +44,23 @@ class MailReadView(views.DetailView):
         return context
 
 
-class UpdateMailView(auth_mixins.LoginRequiredMixin, views.UpdateView):
+class AnswerMailView(auth_mixins.LoginRequiredMixin, views.UpdateView):
     template_name = 'mails/mail_edit.html'
     model = Mail
-    form_class = MailForm
+    form_class = AnswerMailForm
 
     def get_success_url(self):
-        url = reverse_lazy('edit mail', kwargs={'pk': self.object.id})
+        url = reverse_lazy('success mail send')
         return url
 
+    def get_object(self, query=None):
+        pk = self.kwargs.get('pk', None)
+        r_mail = self.request.mail if pk is None else Mail.objects.get(pk=pk)
+        return r_mail
+
     def form_valid(self, form):
+        mail = form.save(commit=False)
+        mail.save()
         return super().form_valid(form)
 
 
@@ -63,25 +76,6 @@ class CreateMailView(auth_mixins.LoginRequiredMixin, views.CreateView):
     def form_valid(self, form):
         mail = form.save(commit=False)
         mail.sender = self.request.user.username
-        mail.save()
-        return super().form_valid(form)
-
-
-class CreateOrderView(auth_mixins.LoginRequiredMixin, views.CreateView):
-    template_name = 'mails/order_create.html'
-    model = Mail
-    form_class = OrderForm
-
-    def get_success_url(self):
-        url = reverse_lazy('mail inbox')
-        return url
-
-    def form_valid(self, form):
-        mail = form.save(commit=False)
-        mail.receiver = self.request.user.userprofile
-        mail.receiver_id = self.request.user.userprofile.id
-        mail.sender = 'SiteAdmin'
-        mail.title = 'Thank you for your order!'
         mail.save()
         return super().form_valid(form)
 

@@ -30,10 +30,13 @@
                 </div>
                 <p class="mt-2">Description: {{ foo.description }}</p>
                 <div class="justify-content-between">
-                    <h5>Weight: <u>{{ foo.weight }}{{ foo.weight_tag }}</u></h5>
+                    <h5>Weight: <u>{{ foo.weight }} {{ foo.weight_tag }}</u></h5>
                     <h5>Price: <u>{{ foo.price }}{{ foo.price_tag }}</u></h5>
                     <h5><u>Manufacturer: {{ foo.manufacturer }}</u></h5>
                 </div>
+                <a href="{% url 'send food order' foo.id%}"
+                   class="btn btn-success">ORDER
+                </a>
             </div>
             <div style="background-color: lightyellow; padding:2%">
                 {% if foo.commentsoffood_set.all %}

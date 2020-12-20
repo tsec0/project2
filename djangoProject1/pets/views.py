@@ -18,6 +18,12 @@ class PetsListView(views.ListView):
     context_object_name = 'pets'
 
 
+class Success(views.ListView):
+    model = Pet
+    template_name = 'pets/success_send.html'
+    context_object_name = 'pets'
+
+
 class YourPetsListView(views.ListView):
     model = Pet
     template_name = 'pets/pet_user.html'
@@ -58,17 +64,24 @@ class PetDetailsView(views.DetailView):
 
 
 class MailToPetOwnerView(auth_mixins.LoginRequiredMixin, views.CreateView):
-    template_name = 'mails/order_create.html'
+    template_name = 'mails/mail_create.html'
     model = Mail
     form_class = SendToOwnerForm
 
+    def get_object(self, query=None):
+        pk = self.kwargs.get('pk', None)
+        pet = self.request.pet if pk is None else Pet.objects.get(pk=pk)
+        return pet
+
     def get_success_url(self):
-        url = reverse_lazy('mail inbox')
+        url = reverse_lazy('success')
         return url
 
     def form_valid(self, form):
         mail = form.save(commit=False)
         mail.sender = self.request.user.username
+        mail.receiver = self.get_object().user
+        mail.title = self.get_object().name
         mail.save()
         return super().form_valid(form)
 

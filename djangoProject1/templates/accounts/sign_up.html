@@ -5,6 +5,8 @@
             {% csrf_token %}
             <h5>{{ form }}</h5>
             <button class="btn btn-primary" type="submit">Sign in</button>
+            <h5>OR</h5>
+            <a href="{% url 'welcome' %}" class="btn btn-danger">Return to main page</a>
         </div>
     </form>
 {% endblock %}

@@ -37,3 +37,28 @@ class CommentFoodView(auth_mixins.LoginRequiredMixin, views.CreateView):
         comment.food = Food.objects.get(pk=self.kwargs['pk'])
         comment.save()
         return redirect('food details', self.kwargs['pk'])
+
+
+class CreateOrderFoodView(auth_mixins.LoginRequiredMixin, views.CreateView):
+    template_name = 'mails/order_create.html'
+    model = Mail
+    form_class = OrderForm
+
+    def get_object(self, query=None):
+        pk = self.kwargs.get('pk', None)
+        food = self.request.food if pk is None else Food.objects.get(pk=pk)
+        return food
+
+    def get_success_url(self):
+        url = reverse_lazy('mail inbox')
+        return url
+
+    def form_valid(self, form):
+        mail = form.save(commit=False)
+        mail.receiver = self.request.user.userprofile
+        mail.receiver_id = self.request.user.userprofile.id
+        mail.sender = 'SiteAdmin'
+        mail.content = str(self.get_object())
+        mail.title = 'Thank you for your order!'
+        mail.save()
+        return super().form_valid(form)
